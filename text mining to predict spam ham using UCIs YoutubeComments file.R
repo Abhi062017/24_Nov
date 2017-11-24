@@ -28,6 +28,8 @@ youtube.corpus.stemming <- tm_map(youtube.corpus.whitespaces, stemDocument)
 
 youtube.final <- sapply(youtube.corpus.stemming,
                         function(x) iconv(x, "latin1", "ASCII", sub=""))#removes emoji/special characters
+#note: this returns a character class, not a corpus class,
+#so you'd need a corpus class to form a DocumentTermMatrix.
 iconvlist()# this lists the available encodings
 
 #forming a wordcloud
